@@ -1,82 +1,83 @@
-<!DOCTYPE html>
-<style>
-      border: 2px solid #FFD700;
-      width: 250px;
-      border-radius: 10px;
-      overflow: hidden;
+import { ImageWithFallback } from './components/figma/ImageWithFallback';
+
+export default function App() {
+  const trainingCards = [
+    {
+      title: "Musculação",
+      description: "Treinos intensos para ganho de massa muscular.",
+      image: "https://images.unsplash.com/photo-1554344728-77cf90d9ed26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+    },
+    {
+      title: "Crossfit",
+      description: "Alta intensidade para queimar gordura rápido.",
+      image: "https://images.unsplash.com/photo-1758875569215-6f4743bcbe97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+    },
+    {
+      title: "Personal Trainer",
+      description: "Acompanhamento profissional exclusivo.",
+      image: "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
     }
+  ];
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+  return (
+    <div className="min-h-screen bg-[#0f0f0f] text-white">
+      {/* Header */}
+      <header className="bg-[#1a1a1a] text-center py-8 px-4 border-b-4 border-[#FFD700]">
+        <h1 className="text-[#FFD700] mb-2">Academia PowerFit</h1>
+        <p className="text-gray-300">Seu corpo no limite máximo</p>
+      </header>
 
-    .card h3 {
-      margin: 10px 0;
-      color: #FFD700;
-    }
+      {/* Navigation */}
+      <nav className="bg-[#111] flex flex-wrap justify-center gap-0 border-b-2 border-[#FFD700]">
+        <a href="#" className="px-6 py-4 text-white hover:bg-[#FFD700] hover:text-black transition-colors duration-300 border-r border-[#333]">
+          Início
+        </a>
+        <a href="#" className="px-6 py-4 text-white hover:bg-[#FFD700] hover:text-black transition-colors duration-300 border-r border-[#333]">
+          Planos
+        </a>
+        <a href="#" className="px-6 py-4 text-white hover:bg-[#FFD700] hover:text-black transition-colors duration-300 border-r border-[#333]">
+          Treinos
+        </a>
+        <a href="#" className="px-6 py-4 text-white hover:bg-[#FFD700] hover:text-black transition-colors duration-300">
+          Contato
+        </a>
+      </nav>
 
-    footer {
-      background: #111;
-      text-align: center;
-      padding: 20px;
-      border-top: 3px solid #FFD700;
-    }
+      {/* Banner */}
+      <section className="bg-gradient-to-br from-[#222] to-[#0f0f0f] text-center py-20 px-4 border-b-4 border-[#FFD700]">
+        <h2 className="text-[#FFD700]">Foque. Treine. Evolua.</h2>
+      </section>
 
-  </style>
-</head>
-<body>
+      {/* Training Cards Section */}
+      <section className="bg-[#1a1a1a] py-12 px-4">
+        <h2 className="text-center text-[#FFD700] mb-8">Nossos Treinos</h2>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {trainingCards.map((card, index) => (
+            <div key={index} className="bg-[#222] border-2 border-[#FFD700] rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300">
+              <ImageWithFallback
+                src={card.image}
+                alt={card.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4 text-center">
+                <h3 className="text-[#FFD700] mb-2">{card.title}</h3>
+                <p className="text-gray-300">{card.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-  <header>
-    <h1>Academia PowerFit</h1>
-    <p>Seu corpo no limite máximo</p>
-  </header>
+      {/* Plans Section */}
+      <section className="bg-[#0f0f0f] py-12 px-4 text-center">
+        <h2 className="text-[#FFD700] mb-4">Planos</h2>
+        <p className="text-gray-300">Mensal: R$99 | Trimestral: R$270 | Anual: R$900</p>
+      </section>
 
-  <nav>
-    <a href="#">Início</a>
-    <a href="#">Planos</a>
-    <a href="#">Treinos</a>
-    <a href="#">Contato</a>
-  </nav>
-
-  <section class="banner">
-    <h2>Foque. Treine. Evolua.</h2>
-  </section>
-
-  <section class="section">
-    <h2 style="color:#FFD700;">Nossos Treinos</h2>
-    <div class="cards">
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001ab" alt="Musculação">
-        <h3>Musculação</h3>
-        <p>Treinos intensos para ganho de massa muscular.</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285" alt="Crossfit">
-        <h3>Crossfit</h3>
-        <p>Alta intensidade para queimar gordura rápido.</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e" alt="Personal Trainer">
-        <h3>Personal Trainer</h3>
-        <p>Acompanhamento profissional exclusivo.</p>
-      </div>
-
+      {/* Footer */}
+      <footer className="bg-[#111] text-center py-6 px-4 border-t-4 border-[#FFD700]">
+        <p className="text-gray-400">© 2026 Academia PowerFit - Todos os direitos reservados</p>
+      </footer>
     </div>
-  </section>
-
-  <section class="section">
-    <h2 style="color:#FFD700;">Planos</h2>
-    <p>Mensal: R$99 | Trimestral: R$270 | Anual: R$900</p>
-  </section>
-
-  <footer>
-    <p>© 2026 Academia PowerFit - Todos os direitos reservados</p>
-  </footer>
-
-</body>
-</html>
+  );
+}
