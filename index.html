@@ -1,165 +1,235 @@
 <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power Fitness</title>
+
 <style>
-      border: 2px solid #FFD700;
-      width: 250px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .card h3 {
-      margin: 10px 0;
-      color: #FFD700;
-    }
-
-    footer {
-      background: #111;
-      text-align: center;
-      padding: 20px;
-      border-top: 3px solid #FFD700;
-    }
-
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>Academia PowerFit</h1>
-    <p>Seu corpo no limite máximo</p>
-  </header>
-
-  <nav>
-    <a href="#">Início</a>
-    <a href="#">Planos</a>
-    <a href="#">Treinos</a>
-    <a href="#">Contato</a>
-  </nav>
-
-  <section class="banner">
-    <h2>Foque. Treine. Evolua.</h2>
-  </section>
-
-  <section class="section">
-    <h2 style="color:#FFD700;">Nossos Treinos</h2>
-    <div class="cards">
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001ab" alt="Musculação">
-        <h3>Musculação</h3>
-        <p>Treinos intensos para ganho de massa muscular.</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285" alt="Crossfit">
-        <h3>Crossfit</h3>
-        <p>Alta intensidade para queimar gordura rápido.</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e" alt="Personal Trainer">
-        <h3>Personal Trainer</h3>
-        <p>Acompanhamento profissional exclusivo.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 style="color:#FFD700;">Planos</h2>
-    <p>Mensal: R$99 | Trimestral: R$270 | Anual: R$900</p>
-  </section>
-      import { ImageWithFallback } from './components/figma/ImageWithFallback';
-
-export default function App() {
-  const trainingCards = [
-    {
-      title: "Musculação",
-      description: "Treinos intensos para ganho de massa muscular.",
-      image: "https://images.unsplash.com/photo-1554344728-77cf90d9ed26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-    },
-    {
-      title: "Crossfit",
-      description: "Alta intensidade para queimar gordura rápido.",
-      image: "https://images.unsplash.com/photo-1758875569215-6f4743bcbe97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-    },
-    {
-      title: "Personal Trainer",
-      description: "Acompanhamento profissional exclusivo.",
-      image: "https://images.unsplash.com/photo-1536922246289-88c42f957773?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-[#0f0f0f] text-white">
-      {/* Header */}
-      <header className="bg-[#1a1a1a] text-center py-8 px-4 border-b-4 border-[#FFD700]">
-        <h1 className="text-[#FFD700] mb-2">Academia PowerFit</h1>
-        <p className="text-gray-300">Seu corpo no limite máximo</p>
-      </header>
-
-      {/* Navigation */}
-      <nav className="bg-[#111] flex flex-wrap justify-center gap-0 border-b-2 border-[#FFD700]">
-        <a href="#" className="px-6 py-4 text-white hover:bg-[#FFD700] hover:text-black transition-colors duration-300 border-r border-[#333]">
-          Início
-        </a>
-        <a href="#" className="px-6 py-4 text-white hover:bg-[#FFD700] hover:text-black transition-colors duration-300 border-r border-[#333]">
-          Planos
-        </a>
-        <a href="#" className="px-6 py-4 text-white hover:bg-[#FFD700] hover:text-black transition-colors duration-300 border-r border-[#333]">
-          Treinos
-        </a>
-        <a href="#" className="px-6 py-4 text-white hover:bg-[#FFD700] hover:text-black transition-colors duration-300">
-          Contato
-        </a>
-      </nav>
-
-      {/* Banner */}
-      <section className="bg-gradient-to-br from-[#222] to-[#0f0f0f] text-center py-20 px-4 border-b-4 border-[#FFD700]">
-        <h2 className="text-[#FFD700]">Foque. Treine. Evolua.</h2>
-      </section>
-
-      {/* Training Cards Section */}
-      <section className="bg-[#1a1a1a] py-12 px-4">
-        <h2 className="text-center text-[#FFD700] mb-8">Nossos Treinos</h2>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {trainingCards.map((card, index) => (
-            <div key={index} className="bg-[#222] border-2 border-[#FFD700] rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300">
-              <ImageWithFallback
-                src={card.image}
-                alt={card.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 text-center">
-                <h3 className="text-[#FFD700] mb-2">{card.title}</h3>
-                <p className="text-gray-300">{card.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Plans Section */}
-      <section className="bg-[#0f0f0f] py-12 px-4 text-center">
-        <h2 className="text-[#FFD700] mb-4">Planos</h2>
-        <p className="text-gray-300">Mensal: R$99 | Trimestral: R$270 | Anual: R$900</p>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-[#111] text-center py-6 px-4 border-t-4 border-[#FFD700]">
-        <p className="text-gray-400">© 2026 Academia PowerFit - Todos os direitos reservados</p>
-      </footer>
-    </div>
-  );
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-  <footer>
-    <p>© 2026 Academia PowerFit - Todos os direitos reservados</p>
-  </footer>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #000, #1a1a1a);
+    color: white;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(90deg, #000, #f1c40f);
+    padding: 20px;
+    text-align: center;
+}
+
+header h2 {
+    font-size: 28px;
+}
+
+/* TÍTULO */
+h1 {
+    text-align: center;
+    margin: 20px;
+}
+
+/* LAYOUT */
+section {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+}
+
+/* CARDS */
+.card {
+    flex: 1;
+    background: #111;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(241,196,15,0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* CENTRO MAIOR */
+.main {
+    flex: 2;
+}
+
+/* BENEFÍCIOS */
+.item {
+    background: #f1c40f;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+/* PLANOS */
+ul {
+    margin-left: 20px;
+}
+
+/* IMC */
+.conversor {
+    margin-top: 20px;
+    padding: 20px;
+    background: #222;
+    border-radius: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #f1c40f;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+button:hover {
+    background: #d4ac0d;
+}
+
+/* RESULTADO */
+.resultado {
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    background: #27ae60;
+}
+
+/* BARRA IMC */
+.barra {
+    height: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    background: linear-gradient(to right, blue, green, yellow, orange, red);
+}
+
+/* HORÁRIOS */
+.horario {
+    background: #f1c40f;
+    color: black;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: black;
+    margin-top: 20px;
+}
+
+/* RESPONSIVO */
+@media(max-width: 900px) {
+    section {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>🏋️ Power Fitness</h2>
+    <p>Seu corpo, sua evolução</p>
+</header>
+
+<h1>🔥 Academia Power Fitness</h1>
+
+<section>
+
+<!-- ESQUERDA -->
+<div class="card">
+    <h3>💪 Benefícios</h3>
+    <div class="item">Ganho de massa</div>
+    <div class="item">Mais resistência</div>
+    <div class="item">Saúde e bem-estar</div>
+</div>
+
+<!-- CENTRO -->
+<div class="card main">
+    <h3>🏋️ Sobre</h3>
+    <p>
+        Treine com equipamentos modernos e ambiente motivador.
+    </p>
+
+    <h3 style="margin-top:20px;">📋 Planos</h3>
+    <ul>
+        <li>Mensal: R$ 89,90</li>
+        <li>Trimestral: R$ 239,90</li>
+        <li>Anual: R$ 799,90</li>
+    </ul>
+
+    <div class="conversor">
+        <h3>🧮 Calculadora IMC</h3>
+
+        <input type="number" id="peso" placeholder="Peso (kg)">
+        <input type="number" id="altura" placeholder="Altura (m)">
+
+        <button onclick="calcularIMC()">Calcular</button>
+
+        <div id="resultado" class="resultado"></div>
+        <div class="barra"></div>
+    </div>
+</div>
+
+<!-- DIREITA -->
+<div class="card">
+    <h3>🕒 Horários</h3>
+    <div class="horario">Seg-Sex: 06h - 23h</div>
+    <div class="horario">Sábado: 08h - 18h</div>
+    <div class="horario">Domingo: 09h - 13h</div>
+</div>
+
+</section>
+
+<footer>
+    <p>Power Fitness © 2026</p>
+</footer>
+
+<script>
+function calcularIMC() {
+    let peso = parseFloat(document.getElementById('peso').value);
+    let altura = parseFloat(document.getElementById('altura').value);
+
+    if (isNaN(peso) || isNaN(altura)) {
+        document.getElementById('resultado').innerHTML = "⚠️ Preencha corretamente!";
+        return;
+    }
+
+    let imc = peso / (altura * altura);
+
+    let texto = "";
+    if (imc < 18.5) texto = "Abaixo do peso";
+    else if (imc < 25) texto = "Peso normal";
+    else if (imc < 30) texto = "Sobrepeso";
+    else texto = "Obesidade";
+
+    document.getElementById('resultado').innerHTML =
+        `IMC: ${imc.toFixed(2)} (${texto})`;
+}
+</script>
 
 </body>
 </html>
